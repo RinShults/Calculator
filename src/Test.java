@@ -48,12 +48,8 @@ public class Test {
                 shortingIf(numb1, numb2, result1, operation);
                 break;
             case "/":
-                if (numb1 % numb2 != 0) {
-                    throw new Exception("Калькулятор не может делить с остатком в итоге");
-                } else {
                     int result2 = numb1 / numb2;
                     shortingIf(numb1, numb2, result2, operation);
-                }
                 break;
             case "+":
                 int result3 = numb1 + numb2;
@@ -61,10 +57,10 @@ public class Test {
                 break;
             case "-":
                 int result4 = numb1 - numb2;
-                if (result4 < 1) {
+                if (!pars.checkRomanFlag && result4 < 1){
                     throw new Exception("в римской системе нет отрицательных чисел");
                 }
-                shortingIf(numb1, numb2, result4, operation);
+                    shortingIf(numb1, numb2, result4, operation);
                 break;
         }
     }
