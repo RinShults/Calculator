@@ -43,25 +43,25 @@ public class Test {
         }
 
         switch (operation) {
-            case "*":
+            case "*" -> {
                 int result1 = numb1 * numb2;
                 shortingIf(numb1, numb2, result1, operation);
-                break;
-            case "/":
-                    int result2 = numb1 / numb2;
-                    shortingIf(numb1, numb2, result2, operation);
-                break;
-            case "+":
+            }
+            case "/" -> {
+                int result2 = numb1 / numb2;
+                shortingIf(numb1, numb2, result2, operation);
+            }
+            case "+" -> {
                 int result3 = numb1 + numb2;
                 shortingIf(numb1, numb2, result3, operation);
-                break;
-            case "-":
+            }
+            case "-" -> {
                 int result4 = numb1 - numb2;
-                if (!pars.checkRomanFlag && result4 < 1){
+                if (!pars.checkRomanFlag && result4 < 1) {
                     throw new Exception("в римской системе нет отрицательных чисел");
                 }
-                    shortingIf(numb1, numb2, result4, operation);
-                break;
+                shortingIf(numb1, numb2, result4, operation);
+            }
         }
     }
 
@@ -71,6 +71,7 @@ public class Test {
             String numb01 = conv.arabicToRomanConverter(numb1);
             String numb02 = conv.arabicToRomanConverter(numb2);
             System.out.println("Решение: " + numb01 + " " + operation + " " + numb02 + " = " + resultEnd);
+            pars.checkRomanFlag = true;
         } else {
             System.out.println("Решение: " + numb1 + " " + operation + " " + numb2 + " = " + result);
         }
